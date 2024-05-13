@@ -41,6 +41,12 @@ class UserCrudController extends CrudController
     {
         CRUD::setFromDb(); // set columns from db columns.
 
+        CRUD::addColumn([
+            'name' => 'id', // The db column name
+            'label' => "ID", // Table column heading
+            'type' => 'number'
+        ]);
+    
         /**
          * Columns can be defined using the fluent syntax:
          * - CRUD::column('price')->type('number');
@@ -57,6 +63,21 @@ class UserCrudController extends CrudController
     {
         CRUD::setValidation(UserRequest::class);
         CRUD::setFromDb(); // set fields from db columns.
+
+        
+        
+
+        CRUD::addField([
+            'name' => 'first_name',
+            'type' => 'text',
+            'label' => "First Name",
+        ]);
+
+        CRUD::addField([
+            'name' => 'last_name',
+            'type' => 'text',
+            'label' => "last_name",
+        ]);
 
         /**
          * Fields can be defined using the fluent syntax:
