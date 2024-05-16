@@ -41,6 +41,8 @@ class RideCrudController extends CrudController
     {
         CRUD::setFromDb(); // set columns from db columns.
 
+
+        CRUD::column('special_request')->type('');
         /**
          * Columns can be defined using the fluent syntax:
          * - CRUD::column('price')->type('number');
@@ -57,6 +59,13 @@ class RideCrudController extends CrudController
     {
         CRUD::setValidation(RideRequest::class);
         CRUD::setFromDb(); // set fields from db columns.
+
+
+        CRUD::addField([
+            'name' => 'special_request',
+            'type' => 'text',
+            'label' => "Pickup",
+        ]);
 
         /**
          * Fields can be defined using the fluent syntax:
