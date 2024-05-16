@@ -10,7 +10,7 @@
         "backpack/theme-tabler": "^1.2",
         "laravel/framework": "^11.0",
         "laravel/tinker": "^2.9",
-        "ext-pdo_sqlite": "*"
+        "ext-pdo_pgsql": "*"
     },
     "require-dev": {
         "backpack/generators": "^4.0",
