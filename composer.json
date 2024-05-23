@@ -9,8 +9,9 @@
         "backpack/crud": "^6.7",
         "backpack/theme-tabler": "^1.2",
         "laravel/framework": "^11.0",
-        "laravel/tinker": "^2.9"
-    
+        "laravel/tinker": "^2.9",
+        "ext-pdo_pgsql": "*",
+        "ext-pgsql": "*"
     },
     "require-dev": {
         "backpack/generators": "^4.0",
