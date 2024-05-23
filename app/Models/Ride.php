@@ -14,6 +14,10 @@ class Ride extends Model
     protected $fillable = [
         'owner_id',
         'destination',
+        'pickup_longitude',
+        'pickup_latitude',
+        'destination_latitude',
+        'destination_longitude',
         'required_arrival_time',
         'passenger_number_from_owner',
         'passenger_number_in_total',
