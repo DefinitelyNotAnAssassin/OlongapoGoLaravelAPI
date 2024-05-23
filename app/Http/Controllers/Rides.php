@@ -38,6 +38,10 @@ class Rides extends Controller
                     'ride_status',
                     'requested_vehicle_type',
                     'special_request',
+                    'pickup_longitude',
+                    'pickup_latitude',
+                    'destination_longitude',
+                    'destination_latitude',
                 ]);
 
             $rideList = $driverRides->map(function ($ride) {
@@ -52,6 +56,10 @@ class Rides extends Controller
                     'ride_status' => $ride->ride_status,
                     'requested_vehicle_type' => $ride->requested_vehicle_type,
                     'special_request' => $ride->special_request,
+                    'pickup_longitude' => $ride->pickup_longitude,
+                    'pickup_latitude' => $ride->pickup_latitude,
+                    'destination_longitude' => $ride->destination_longitude,
+                    'destination_latitude' => $ride->destination_latitude,
                 ];
             });
 
@@ -89,6 +97,10 @@ public function createRide(Request $request)
         $passenger_number_from_owner = $request->input('number_of_passengers');
         $requested_vehicle_type = $request->input('vehicle_type');
         $special_request = $request->input('special_request');
+        $destination_longitude = $request->input('destination_longitude');
+        $destination_latitude = $request->input('destination_latitude');
+        $pickup_longitude = $request->input('pickup_longitude');
+        $pickup_latitude = $request->input('pickup_latitude');
 
         Ride::create([
             'owner_id' => $user->id,
@@ -99,6 +111,10 @@ public function createRide(Request $request)
             'can_be_shared' => false,
             'requested_vehicle_type' => $requested_vehicle_type,
             'special_request' => $special_request,
+            'destination_longitude' => $destination_longitude,
+            'destination_latitude' => $destination_latitude,
+            'pickup_longitude' => $pickup_longitude,
+            'pickup_latitude' => $pickup_latitude,
         ]);
 
         return response()->json(['message' => 'You have successfully made a request.'], 200);
@@ -138,6 +154,11 @@ public function search(Request $request)
                 $rideMap["ride_status"] = $ride->ride_status;
                 $rideMap["requested_vehicle_type"] = $ride->requested_vehicle_type;
                 $rideMap["special_request"] = $ride->special_request;
+                $rideMap["pickup_longitude"] = $ride->pickup_longitude;
+                $rideMap["pickup_latitude"] = $ride->pickup_latitude;
+                $rideMap["destination_longitude"] = $ride->destination_longitude;
+                $rideMap["destination_latitude"] = $ride->destination_latitude;
+
                 $rideList[] = $rideMap;
             }
 
