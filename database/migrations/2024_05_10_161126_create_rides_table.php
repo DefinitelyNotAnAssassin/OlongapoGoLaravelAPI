@@ -19,6 +19,10 @@ class CreateRidesTable extends Migration
             $table->string('ride_status', 255)->default('open');
             $table->string('requested_vehicle_type', 255)->nullable();
             $table->text('special_request')->nullable();
+            $table->string('pickup_longitude');
+            $table->string('pickup_latitude');
+            $table->string('destination_latitude');
+            $table->string('destination_longitude');
             $table->boolean('can_be_shared')->default(false);
             $table->json('sharer_id_and_passenger_number_pair')->nullable();
             $table->timestamps();
